@@ -72,8 +72,9 @@ const int SKY_BOX_SIZE = 500;
 
 void OculusBlockApp::prepareSettings(Settings* settings)
 {
-	settings->disableFrameRate();
-	mRift = Rift::create(true);
+	
+	settings->setFrameRate(60.f);
+	mRift = Rift::create(false);
 	//mRift->disableCaps(ovrHmdCap_ExtendDesktop);
 	settings->setWindowSize(mRift->getHMDRes());
 	settings->setWindowPos(mRift->getHMDDesktopPos()+ivec2(10,10));
@@ -83,14 +84,13 @@ void OculusBlockApp::prepareSettings(Settings* settings)
 
 void OculusBlockApp::setup()
 {
-	mRift->attachToMonitor(app::getWindow()->getNative());
+	if (mRift->getDirectMode())
+		mRift->attachToMonitor(app::getWindow()->getNative());
 	mRift->enableCaps(ovrHmdCap_LowPersistence);
 	mRift->enableCaps(ovrHmdCap_DynamicPrediction);
 	
 	mRift->initGL();
-	//auto displays = Display::getDisplays();
-	//app::WindowRef newWindow = createWindow(Window::Format().size(mRift->hmdNativeResolution.x, mRift->hmdNativeResolution.y).display(displays[displays.size() - 1]).fullScreen(true));
-	//.pos(mRift->hmdDesktopPosition)
+	
 	std::static_pointer_cast<RendererGl>(getRenderer())->setFinishDrawFn([&](cinder::app::Renderer *renderer){
 		if (!mRiftSwap)
 			renderer->swapBuffers();
@@ -160,7 +160,6 @@ void OculusBlockApp::update()
 
 		gl::popMatrices();
 		
-		gl::popModelMatrix();
 	});
 	 
 }

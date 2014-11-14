@@ -64,8 +64,8 @@
       <AdditionalIncludeDirectories>"..\..\Cinder\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder-$(PlatformToolset)_d.lib;libovrd.lib;ws2_32.lib;Dbghelp.lib;dxgi.lib;dxguid.lib;winmm.lib;Leapd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"..\blocks\OculusBlock\LibOVR\Lib\Win32\VS2013\";"..\..\Cinder\lib\msw\$(PlatformTarget)";;..\blocks\Cinder-LeapMotion\lib\msw\x86\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder-$(PlatformToolset)_d.lib;libovrd.lib;ws2_32.lib;Dbghelp.lib;dxgi.lib;dxguid.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>"..\blocks\OculusBlock\LibOVR\Lib\Win32\VS2013\";"..\..\Cinder\lib\msw\$(PlatformTarget)";</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -91,8 +91,8 @@
       <AdditionalIncludeDirectories>"..\..\Cinder\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder-$(PlatformToolset).lib;libovr.lib;ws2_32.lib;Dbghelp.lib;dxgi.lib;dxguid.lib;winmm.lib;Leap.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\Cinder\lib\msw\$(PlatformTarget);..\blocks\OculusBlock\LibOVR\Lib\Win32\VS2013\;..\blocks\Cinder-LeapMotion\lib\msw\x86\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder-$(PlatformToolset).lib;libovr.lib;ws2_32.lib;Dbghelp.lib;dxgi.lib;dxguid.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\Cinder\lib\msw\$(PlatformTarget);..\blocks\OculusBlock\LibOVR\Lib\Win32\VS2013\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>

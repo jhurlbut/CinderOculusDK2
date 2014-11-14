@@ -49,7 +49,7 @@ RiftRef Rift::create(bool timeWarpEnable)
 Rift::Rift(bool timeWarpEnable) 
 {
 	mTimeWarpEnabled = timeWarpEnable;
-	
+	mDirectMode = ovrHmdCap_ExtendDesktop;
 	App::get()->getSignalUpdate().connect(bind(&Rift::update, this));
 	ovr_Initialize();
 	hmd = ovrHmd_Create(0);
@@ -77,10 +77,11 @@ void Rift::attachToMonitor(void *window){
 }
 void Rift::initGL()
 {
-
-	//setWindowPos(hmdDesktopPosition);
-	//setWindowSize(hmdNativeResolution.x, hmdNativeResolution.y);
-	//setFullScreen(true);
+	//set the window size and position if using extended display
+	if (mDirectMode == false){
+		setWindowPos(hmdDesktopPosition);
+		setWindowSize(hmdNativeResolution.x, hmdNativeResolution.y);
+	}
 	memset(eyeTextures, 0, 2 * sizeof(ovrGLTexture));
 	float eyeHeight = 1.5f;
 	player = glm::inverse(glm::lookAt(
@@ -117,7 +118,7 @@ void Rift::initGL()
 	ovrGLConfig cfg;
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.OGL.Header.API = ovrRenderAPI_OpenGL;
-	cfg.OGL.Header.RTSize = Rift::toOvr(glm::uvec2(ci::app::getWindowIndex(0)->getWidth(), ci::app::getWindowIndex(0)->getHeight()));
+		cfg.OGL.Header.RTSize = Rift::toOvr(glm::uvec2(ci::app::getWindowIndex(0)->getWidth(), ci::app::getWindowIndex(0)->getHeight()));
 	cfg.OGL.Header.Multisample = 1;
 
 	void* windowHandle = ci::app::getWindowIndex(0)->getNative();

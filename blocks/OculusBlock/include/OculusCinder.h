@@ -167,6 +167,7 @@ public:
 	glm::uvec2 hmdNativeResolution;
 	glm::ivec2 hmdDesktopPosition;
 	glm::mat4 getEyePose();
+	bool		getDirectMode(){ return mDirectMode; }
 protected:
 	Rift(bool timeWarpEnable = false);
 	virtual void		update();
@@ -228,6 +229,7 @@ protected:
 	ci::gl::TextureRef mTexs[2];
 	ovrEyeType currentEye;
 	bool		mTimeWarpEnabled;
+	bool		mDirectMode;
 };
 
 template <typename Function>
