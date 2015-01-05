@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+    name="Oculus Rift DK2"
+    id="net.jameshurlbut.CinderOculusDK2"
+    git="https://github.com/jhurlbut/CinderOculusDK2.git"
+    author="James Hurlbut"
+    summary="Oculus Rift DK2"
+    version="0.43.0"
+    url="https://github.com/jhurlbut/CinderOculusDK2"
+    library="https://developer.oculus.com/downloads/"
+    >
+<!--
+    <supports os="msw" />
+-->
+    <supports os="macosx" />
+    <headerPattern>include/*.h</headerPattern>
+    <sourcePattern>src/*.cpp</sourcePattern>
+    <headerPattern>lib/LibOVR/Include/*.h</headerPattern>
+    <includePath system="true">lib/LibOVR/Include</includePath>
+    <includePath system="true">lib/LibOVR/Src</includePath>
+    <includePath system="true">lib/LibOVR/Src/Kernel</includePath>
+    <includePath system="true">lib/LibOVR/Src/Util</includePath>
+<!--
+    <platform os="msw">
+    </platform>
+-->
+    <platform os="macosx">
+        <platform config="debug">
+            <staticLibrary>lib/LibOVR/Lib/Mac/Debug/libovr.a</staticLibrary>
+        </platform>
+        <platform config="release">
+            <staticLibrary>lib/LibOVR/Lib/Mac/Release/libovr.a</staticLibrary>
+        </platform>
+        <framework sdk="true">IOKit.framework</framework>
+        <framework sdk="true">IOSurface.framework</framework>
+    </platform>
+    <copyExclude>samples</copyExclude>
+</block>
+</cinder>
