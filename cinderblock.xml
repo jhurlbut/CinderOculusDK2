@@ -35,6 +35,7 @@
         <framework sdk="true">IOKit.framework</framework>
         <framework sdk="true">IOSurface.framework</framework>
     </platform>
+    <asset>assets/Tuscany_Undistorted_Right_DK2.png</asset>
     <copyExclude>samples</copyExclude>
 </block>
 </cinder>
