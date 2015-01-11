@@ -1,5 +1,5 @@
 CinderOculusDK2
 ===============
 
-Example code for using the DK2 in direct mode with the cinderNext branch
-Use the .4.3 beta SDK. copy the contents of the OculusSDK folder into the lib/LibOVR folder 
+A CinderBlock to use the DK2 and Direct-Mode with the [glNext branch](https://github.com/cinder/Cinder/tree/glNext).
+Copy the `LibOVR` folder from the 0.43.0 Oculus SDK the `lib` folder.
