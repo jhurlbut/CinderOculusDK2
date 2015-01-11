@@ -4,6 +4,7 @@
 # Xcode
 xcuserdata/
 !xcuserdata/default.*
+build/
 
 # Project
 lib/LibOVR
