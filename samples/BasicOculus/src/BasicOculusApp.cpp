@@ -48,7 +48,7 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class OculusBlockApp : public AppNative {
+class BasicOculusApp : public AppNative {
 public:
 	virtual void	setup();
 	virtual void	update();
@@ -70,19 +70,18 @@ public:
 
 const int SKY_BOX_SIZE = 500;
 
-void OculusBlockApp::prepareSettings(Settings* settings)
+void BasicOculusApp::prepareSettings(Settings* settings)
 {
-	
 	settings->setFrameRate(60.f);
 	mRift = Rift::create(false);
-	//mRift->disableCaps(ovrHmdCap_ExtendDesktop);
+//    mRift->disableCaps(ovrHmdCap_ExtendDesktop);
 	settings->setWindowSize(mRift->getHMDRes());
 	settings->setWindowPos(mRift->getHMDDesktopPos()+ivec2(10,10));
 	console() << "native res " << mRift->getHMDDesktopPos() << endl;
 }
 
 
-void OculusBlockApp::setup()
+void BasicOculusApp::setup()
 {
 	if (mRift->getDirectMode())
 		mRift->attachToMonitor(app::getWindow()->getNative());
@@ -121,9 +120,8 @@ void OculusBlockApp::setup()
 	mRift->checkHealthSafetyWarningStatus();
 }
 
-void OculusBlockApp::update()
+void BasicOculusApp::update()
 {
-	
 	// rotate the object (teapot) a bit each frame
 	mObjectRotation *= rotate(0.0004f, normalize(vec3(0.01f, .1, 0.01f)));
 	
@@ -159,14 +157,11 @@ void OculusBlockApp::update()
 		mSkyBoxBatch->draw();
 
 		gl::popMatrices();
-		
 	});
-	 
 }
-void OculusBlockApp::keyDown(KeyEvent event)
+
+void BasicOculusApp::keyDown(KeyEvent event)
 {
-	
-	
 	if (event.getChar() == ' '){
 		mRiftSwap = !mRiftSwap;
 	}
@@ -175,10 +170,9 @@ void OculusBlockApp::keyDown(KeyEvent event)
 	}
 }
 
-void OculusBlockApp::draw()
+void BasicOculusApp::draw()
 {
-
 
 }
 
-CINDER_APP_NATIVE(OculusBlockApp, RendererGl)
+CINDER_APP_NATIVE(BasicOculusApp, RendererGl)
