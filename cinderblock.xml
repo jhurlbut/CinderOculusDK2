@@ -10,10 +10,8 @@
     url="https://github.com/jhurlbut/CinderOculusDK2"
     library="https://developer.oculus.com/downloads/"
     >
-<!--
-    <supports os="msw" />
--->
     <supports os="macosx" />
+    <supports os="msw" />
     <headerPattern>include/*.h</headerPattern>
     <sourcePattern>src/*.cpp</sourcePattern>
     <headerPattern>lib/LibOVR/Include/*.h</headerPattern>
@@ -21,10 +19,7 @@
     <includePath system="true">lib/LibOVR/Src</includePath>
     <includePath system="true">lib/LibOVR/Src/Kernel</includePath>
     <includePath system="true">lib/LibOVR/Src/Util</includePath>
-<!--
-    <platform os="msw">
-    </platform>
--->
+    <asset>assets/Tuscany_Undistorted_Right_DK2.png</asset>
     <platform os="macosx">
         <platform config="debug">
             <staticLibrary>lib/LibOVR/Lib/Mac/Debug/libovr.a</staticLibrary>
@@ -35,7 +30,25 @@
         <framework sdk="true">IOKit.framework</framework>
         <framework sdk="true">IOSurface.framework</framework>
     </platform>
-    <asset>assets/Tuscany_Undistorted_Right_DK2.png</asset>
+    <platform os="msw">
+        <!--
+          without an arch attribute we cannot support Win32 and x64 with the same block, see:
+            https://forum.libcinder.org/topic/cinder-block-xml-specify-architecture
+        -->
+        <platform config="debug" compiler="vc2012">
+            <staticLibrary>lib/LibOVR/Lib/Win32/VS2012/libovrd.lib</staticLibrary>
+        </platform>
+        <platform config="release" compiler="vc2012">
+            <staticLibrary>lib/LibOVR/Lib/Win32/VS2012/libovr.lib</staticLibrary>
+        </platform>
+        <platform config="debug" compiler="vc2013">
+            <staticLibrary>lib/LibOVR/Lib/Win32/VS2013/libovrd.lib</staticLibrary>
+        </platform>
+        <platform config="release" compiler="vc2013">
+            <staticLibrary>lib/LibOVR/Lib/Win32/VS2013/libovr.lib</staticLibrary>
+        </platform>
+        <staticLibrary absolute="true">Winmm.lib</staticLibrary>
+    </platform>
     <copyExclude>samples</copyExclude>
 </block>
 </cinder>
