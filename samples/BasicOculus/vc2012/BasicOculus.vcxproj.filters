@@ -1,0 +1,73 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{9E23B24E-0E60-4C0E-ACDA-0B5E438EB8A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Oculus Rift DK2">
+      <UniqueIdentifier>{AF49A5EA-B022-4A35-B7D4-CAF0804E6CB9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Oculus Rift DK2\include">
+      <UniqueIdentifier>{F1E26594-FD08-423D-AE41-C3D5340C2847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Oculus Rift DK2\src">
+      <UniqueIdentifier>{30AEADB5-324C-4007-A679-0F1B7402B790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Oculus Rift DK2\lib">
+      <UniqueIdentifier>{EC828E65-A820-4C7F-B73D-15117DD854FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Oculus Rift DK2\lib\LibOVR">
+      <UniqueIdentifier>{6921838C-2545-4B8A-8F56-71089253A677}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Oculus Rift DK2\lib\LibOVR\Include">
+      <UniqueIdentifier>{76606DF7-18CC-4A70-B9A4-969DE6D5EB47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BasicOculusApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BasicOculusApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\OculusCinder.h">
+      <Filter>Blocks\Oculus Rift DK2\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\src\OculusCinder.cpp">
+      <Filter>Blocks\Oculus Rift DK2\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\lib\LibOVR\Include\OVR.h">
+      <Filter>Blocks\Oculus Rift DK2\lib\LibOVR\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lib\LibOVR\Include\OVR_Kernel.h">
+      <Filter>Blocks\Oculus Rift DK2\lib\LibOVR\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lib\LibOVR\Include\OVR_Version.h">
+      <Filter>Blocks\Oculus Rift DK2\lib\LibOVR\Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

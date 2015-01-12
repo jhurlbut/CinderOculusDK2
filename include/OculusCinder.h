@@ -43,9 +43,10 @@
 #include "cinder/gl/Fbo.h"
 #include "cinder/gl/gl.h"
 #include <functional>
-#include <../Src/OVR_CAPI.h>
-#include <../Src/OVR_CAPI_GL.h>
-#include <../Src/OVR_Stereo.h>
+
+#include "OVR.h"
+#include "OVR_CAPI_GL.h"
+
 typedef std::shared_ptr<class Rift> RiftRef;
 
 class Rift
