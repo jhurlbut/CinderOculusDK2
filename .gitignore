@@ -8,3 +8,10 @@ build/
 
 # Project
 lib/LibOVR
+*.tlog
+*.idb
+*.pdb
+*.obj
+samples/BasicOculus/vc2012/Debug/
+*.opensdf
+*.sdf
