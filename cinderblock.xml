@@ -19,6 +19,7 @@
     <includePath system="true">lib/LibOVR/Src</includePath>
     <includePath system="true">lib/LibOVR/Src/Kernel</includePath>
     <includePath system="true">lib/LibOVR/Src/Util</includePath>
+    <includePath system="true">include</includePath>
     <asset>assets/Tuscany_Undistorted_Right_DK2.png</asset>
     <platform os="macosx">
         <platform config="debug">
