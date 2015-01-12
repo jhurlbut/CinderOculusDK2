@@ -6,7 +6,7 @@
     git="https://github.com/jhurlbut/CinderOculusDK2.git"
     author="James Hurlbut"
     summary="Oculus Rift DK2"
-    version="0.43.0"
+    version="0.4.3"
     url="https://github.com/jhurlbut/CinderOculusDK2"
     library="https://developer.oculus.com/downloads/"
     >
