@@ -72,7 +72,7 @@ const int SKY_BOX_SIZE = 500;
 
 void BasicOculusApp::prepareSettings(Settings* settings)
 {
-	settings->setFrameRate(60.f);
+	settings->disableFrameRate();
 	mRift = Rift::create(false);
 //    mRift->disableCaps(ovrHmdCap_ExtendDesktop);
 	settings->setWindowSize(mRift->getHMDRes());
