@@ -34,7 +34,7 @@
 *
 */
 
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/Camera.h"
 #include "cinder/gl/Shader.h"
@@ -48,14 +48,13 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class BasicOculusApp : public AppNative {
+class BasicOculusApp : public App {
 public:
 	virtual void	setup();
 	virtual void	update();
 	virtual void	draw();
 	
 	void keyDown(KeyEvent event);
-	void			prepareSettings(Settings* settings);
 
 	RiftRef				mRift;
 	bool				mRiftSwap;
@@ -70,19 +69,14 @@ public:
 
 const int SKY_BOX_SIZE = 500;
 
-void BasicOculusApp::prepareSettings(Settings* settings)
-{
-	settings->disableFrameRate();
-	mRift = Rift::create(false);
-//    mRift->disableCaps(ovrHmdCap_ExtendDesktop);
-	settings->setWindowSize(mRift->getHMDRes());
-	settings->setWindowPos(mRift->getHMDDesktopPos()+ivec2(10,10));
-	console() << "native res " << mRift->getHMDDesktopPos() << endl;
-}
-
-
 void BasicOculusApp::setup()
 {
+	mRift = Rift::create(false);
+//    mRift->disableCaps(ovrHmdCap_ExtendDesktop);
+	setWindowSize(mRift->getHMDRes());
+	setWindowPos(mRift->getHMDDesktopPos()+ivec2(10,10));
+	console() << "native res " << mRift->getHMDRes() << endl;
+
 	if (mRift->getDirectMode())
 		mRift->attachToMonitor(app::getWindow()->getNative());
 	mRift->enableCaps(ovrHmdCap_LowPersistence);
@@ -97,7 +91,7 @@ void BasicOculusApp::setup()
 	
 	//setup rift. let rift swap buffers
 	mRiftSwap = true;
-	mCubeMap = gl::TextureCubeMap::createHorizontalCross(loadImage(loadAsset("env_map.jpg")), gl::TextureCubeMap::Format().mipmap());
+	mCubeMap = gl::TextureCubeMap::create(loadImage(loadAsset("env_map.jpg")), gl::TextureCubeMap::Format().mipmap());
 
 #if defined( CINDER_GL_ES )
 	auto envMapGlsl = gl::GlslProg::create(loadAsset("env_map_es2.vert"), loadAsset("env_map_es2.frag"));
@@ -175,4 +169,6 @@ void BasicOculusApp::draw()
 
 }
 
-CINDER_APP_NATIVE(BasicOculusApp, RendererGl)
+CINDER_APP(BasicOculusApp, RendererGl, [](App::Settings* settings){
+	settings->disableFrameRate();
+})

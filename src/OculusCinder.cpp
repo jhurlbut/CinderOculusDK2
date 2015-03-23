@@ -35,7 +35,7 @@
 */
 
 #include "OculusCinder.h"
-#include "cinder/app/AppBasic.h"
+#include "cinder/app/App.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -118,7 +118,7 @@ void Rift::initGL()
 	ovrGLConfig cfg;
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.OGL.Header.API = ovrRenderAPI_OpenGL;
-		cfg.OGL.Header.RTSize = Rift::toOvr(glm::uvec2(ci::app::getWindowIndex(0)->getWidth(), ci::app::getWindowIndex(0)->getHeight()));
+		cfg.OGL.Header.BackBufferSize = Rift::toOvr(glm::uvec2(ci::app::getWindowIndex(0)->getWidth(), ci::app::getWindowIndex(0)->getHeight()));
 	cfg.OGL.Header.Multisample = 1;
 
 	void* windowHandle = ci::app::getWindowIndex(0)->getNative();
