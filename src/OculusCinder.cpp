@@ -50,7 +50,7 @@ Rift::Rift(bool timeWarpEnable)
 {
 	mTimeWarpEnabled = timeWarpEnable;
 	mDirectMode = ovrHmdCap_ExtendDesktop;
-	App::get()->getSignalUpdate().connect(bind(&Rift::update, this));
+	//App::get()->getSignalUpdate().connect(bind(&Rift::update, this));
 	ovr_Initialize();
 	hmd = ovrHmd_Create(0);
 	

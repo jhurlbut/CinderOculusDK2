@@ -48,6 +48,13 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+static RiftRef				mRift;
+void prepareSettings(App::Settings *settings)
+{
+	mRift = Rift::create(false);
+	mRift->disableCaps(ovrHmdCap_ExtendDesktop); 
+}
+
 class BasicOculusApp : public App {
 public:
 	virtual void	setup();
@@ -56,7 +63,6 @@ public:
 	
 	void keyDown(KeyEvent event);
 
-	RiftRef				mRift;
 	bool				mRiftSwap;
 
 	params::InterfaceGlRef	mParams;
@@ -71,7 +77,6 @@ const int SKY_BOX_SIZE = 500;
 
 void BasicOculusApp::setup()
 {
-	mRift = Rift::create(false);
 //    mRift->disableCaps(ovrHmdCap_ExtendDesktop);
 	setWindowSize(mRift->getHMDRes());
 	setWindowPos(mRift->getHMDDesktopPos()+ivec2(10,10));
@@ -169,6 +174,5 @@ void BasicOculusApp::draw()
 
 }
 
-CINDER_APP(BasicOculusApp, RendererGl, [](App::Settings* settings){
-	settings->disableFrameRate();
-})
+
+CINDER_APP(BasicOculusApp, RendererGl, prepareSettings);
